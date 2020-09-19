@@ -81,6 +81,8 @@ nav#main-nav {
     nav#main-nav .container {
 
         .nav-items {
+            display: none;
+            
             position: absolute;
             top: 100%;
             right: 0;
@@ -106,6 +108,10 @@ nav#main-nav {
     }
 
     nav#main-nav.show .container .nav-items {
+        display: initial;
+    }
+
+    nav#main-nav.show.translate .container .nav-items {
         transform: translateX(0);
     }
 }

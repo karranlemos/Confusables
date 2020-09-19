@@ -14,7 +14,20 @@ export default class Menu {
     }
 
     toggleMenu = (): void => {
-        this.menu.classList.toggle('show');
+        if (this.menu.classList.contains('show'))
+            this.closeMenu();
+        else
+            this.openMenu();
+    }
+
+    openMenu = (): void => {
+        this.menu.classList.add('show');
+        setTimeout(() => this.menu.classList.add('translate'), 50);
+    }
+
+    closeMenu = (): void => {
+        this.menu.classList.remove('translate');
+        setTimeout(() => this.menu.classList.remove('show'), 500);
     }
 
 

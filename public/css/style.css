@@ -527,6 +527,7 @@ nav#main-nav .container .nav-mobile-button {
 
 @media screen and (max-width: 700px) {
   nav#main-nav .container .nav-items {
+    display: none;
     position: absolute;
     top: 100%;
     right: 0;
@@ -545,6 +546,10 @@ nav#main-nav .container .nav-mobile-button {
   }
 
   nav#main-nav.show .container .nav-items {
+    display: initial;
+  }
+
+  nav#main-nav.show.translate .container .nav-items {
     transform: translateX(0);
   }
 }
