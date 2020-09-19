@@ -13,6 +13,10 @@
     }
 }
 
+.mobile-only {
+    display: none;
+}
+
 .btn {
     padding: 10px;
     margin: 0;
@@ -50,5 +54,14 @@
         &:hover {
             background-color: darken($btn-secondary-bg-color, 4);
         }
+    }
+}
+
+
+
+
+@media screen and (max-width: $mobile-max-width) {
+    .mobile-only {
+        display: initial;
     }
 }
