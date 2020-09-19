@@ -1,8 +1,15 @@
 class Confusables {
-    constructor() {
+    constructor(confusables) {
     }
     static initAll() {
         Helpers.initAll(Confusables, '.js-confusables');
+    }
+}
+class Menu {
+    constructor(menu) {
+    }
+    static initAll() {
+        Helpers.initAll(Menu, '.js-nav-menu');
     }
 }
 class Helpers {
