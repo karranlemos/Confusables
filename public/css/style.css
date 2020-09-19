@@ -397,11 +397,13 @@ nav#main-nav .container .nav-mobile-button {
   nav#main-nav .container .nav-items {
     position: absolute;
     top: 100%;
-    left: 0;
     right: 0;
-    display: none;
+    width: 100%;
+    max-width: 400px;
+    transform: translateX(100%);
     flex-direction: column;
     height: calc(100vh - 75px);
+    transition: transform 0.4s ease-in-out;
   }
   nav#main-nav .container .nav-item {
     height: 75px;
@@ -411,7 +413,7 @@ nav#main-nav .container .nav-mobile-button {
   }
 
   nav#main-nav.show .container .nav-items {
-    display: flex;
+    transform: translateX(0);
   }
 }
 
