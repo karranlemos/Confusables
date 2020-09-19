@@ -2,3 +2,53 @@
     max-width: 1000px;
     margin: 0 auto;
 }
+
+.split-text {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+
+    .side1, .side2 {
+        flex: 1 1 0;
+    }
+}
+
+.btn {
+    padding: 10px;
+    margin: 0;
+    min-width: 150px;
+    height: 60px;
+
+    background-color: $btn-bg-color;
+    color: $btn-color;
+    
+    outline: none;
+    border: none;
+    cursor: pointer;
+
+    &:active {
+        padding-left: 12px;
+    }
+
+    &:hover {
+        background-color: darken($btn-bg-color, 4);
+    }
+
+    &.btn-primary {
+        background-color: $btn-primary-bg-color;
+        color: $btn-primary-color;
+
+        &:hover {
+            background-color: darken($btn-primary-bg-color, 4);
+        }
+    }
+
+    &.btn-secondary {
+        background-color: $btn-secondary-bg-color;
+        color: $btn-secondary-color;
+
+        &:hover {
+            background-color: darken($btn-secondary-bg-color, 4);
+        }
+    }
+}

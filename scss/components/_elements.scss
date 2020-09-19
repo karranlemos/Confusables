@@ -4,12 +4,14 @@ body {
 }
 
 
+
+// Main Layout
+
 .all-container {
     display: grid;
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
 }
-
 
 header#main-nav-header {
     height: $nav-height;
@@ -110,5 +112,42 @@ footer#footer {
         align-items: center;
 
         height: 100%;
+    }
+}
+
+
+
+// Text Editor
+
+.editor-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    margin: 20px 0;
+
+    .split-text {
+        textarea.side1, textarea.side2 {
+            min-height: 300px;
+            padding: 18px;
+            resize: vertical;
+
+            border: none;
+            outline: none;
+
+            background-color: $split-text-bg-color;
+            color: $split-text-color;
+        }
+    }
+
+    .input-item {
+        min-height: 40px;
+        padding: 10px;
+
+        border: none;
+        outline: none;
+
+        background-color: $percent-number-bg-color;
+        color: $percent-number-color;
     }
 }
