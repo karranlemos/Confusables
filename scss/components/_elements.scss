@@ -24,11 +24,12 @@ nav#main-nav {
 
 
         .nav-items {
+            background-color: $nav-bg-color;
             display: flex;
-        }
+        }    
     
-    
-        a.nav-item {
+
+        .nav-item {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -42,5 +43,45 @@ nav#main-nav {
                 background-color: lighten($nav-bg-color, 4);
             }
         }
+
+        .nav-mobile-button {
+            display: none;
+
+            background: url('../images/icons/Hamburger-white.svg') no-repeat center;
+            background-size: 28%;
+            
+            width: $nav-height;
+            min-width: 0;
+            cursor: pointer;
+        }
+    }
+}
+
+@media screen and (max-width: $mobile-max-width) {
+    nav#main-nav .container {
+
+        .nav-items {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+
+            display: none;
+            flex-direction: column;
+
+            height: calc(100vh - #{$nav-height});
+        }
+
+        .nav-item {
+            height: $nav-height;
+
+            &.nav-mobile-button {
+                display: block;
+            }
+        }
+    }
+
+    nav#main-nav.show .container .nav-items {
+        display: flex;
     }
 }
