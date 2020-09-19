@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index",
     "dev": "nodemon index",
-    "ts-dev": "tsc --outDir public/js typescript/script.ts -t es2015 -w",
+    "ts-dev": "tsc --outDir public/js typescript/script.ts -t es2017 -w",
     "sass-dev": "sass scss/style.scss public/css/style.css --watch"
   },
   "author": "",
