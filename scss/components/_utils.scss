@@ -7,7 +7,9 @@
         padding: 20px 40px;
         background-color: $content-bg-color;
 
-        min-height: 300px;
+        &.center {
+            text-align: center;
+        }
     }
 }
 

@@ -385,7 +385,9 @@ template {
   margin: 20px 0;
   padding: 20px 40px;
   background-color: #ffffff;
-  min-height: 300px;
+}
+.container .content.center {
+  text-align: center;
 }
 
 .split-text {
