@@ -13,4 +13,4 @@ etc.
 ## Install & Run
 
 - Install node & npm
-- Run `npm --init`
+- Run `npm init`
