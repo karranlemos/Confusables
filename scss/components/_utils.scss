@@ -1,6 +1,14 @@
 .container {
     max-width: 1000px;
     margin: 0 auto;
+
+    .content {
+        margin: 20px 0;
+        padding: 20px 40px;
+        background-color: $content-bg-color;
+
+        min-height: 300px;
+    }
 }
 
 .split-text {
