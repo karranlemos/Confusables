@@ -147,6 +147,10 @@ footer#footer {
 
             background-color: $split-text-bg-color;
             color: $split-text-color;
+
+            &:focus {
+                background-color: $split-text-bg-color-focus;
+            }
         }
     }
 
@@ -159,6 +163,10 @@ footer#footer {
 
         background-color: $percent-number-bg-color;
         color: $percent-number-color;
+
+        &:focus {
+            background-color: $percent-number-bg-color-focus;
+        }
     }
 }
 
