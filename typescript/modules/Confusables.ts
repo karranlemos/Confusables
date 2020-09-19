@@ -106,6 +106,7 @@ export default class Confusables {
     constructor(confusable) {
         this.confusable = confusable;
 
+        // throws exception if not found
         this.messageBox = new MessageBox('.js-message-box-container', this.confusable);
 
         this.percentageReplace = document.querySelector('.js-percentage-replace');
@@ -123,6 +124,17 @@ export default class Confusables {
 
         for (const submitButton of this.submitButtons)
             submitButton.addEventListener('click', this.confusify);
+
+        Helpers.setInputFilter(this.percentageReplace, (value: string): boolean => {
+            if (!/^\d*$/.test(value))
+                return false;
+            
+            const intValue = parseInt(value);
+            if (intValue < 0 || intValue > 100)
+                return false;
+            
+            return true;
+        })
     }
 
     private verifyMembers = (): void => {
