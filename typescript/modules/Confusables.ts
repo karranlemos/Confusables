@@ -1,4 +1,5 @@
 import Helpers, { Set } from './Helpers.js';
+import MessageBox from './MessageBox.js';
 
 
 // Objects
@@ -100,14 +101,18 @@ export default class Confusables {
     private input: HTMLInputElement;
     private output: HTMLInputElement;
     private submitButtons: NodeList;
+    private messageBox: MessageBox;
 
     constructor(confusable) {
         this.confusable = confusable;
+
+        this.messageBox = new MessageBox('.js-message-box-container', this.confusable);
 
         this.percentageReplace = document.querySelector('.js-percentage-replace');
         this.input = document.querySelector('.js-input');
         this.output = document.querySelector('.js-output');
         this.submitButtons = document.querySelectorAll('.js-submit');
+        
 
         try {
             this.verifyMembers();
@@ -135,7 +140,14 @@ export default class Confusables {
 
 
     private confusify = (): void => {
-        const toBeReplaced: number = this.generateToBeReplaced(this.percentageReplace.value, this.input.value);
+        try {
+            var toBeReplaced: number = this.generateToBeReplaced(this.percentageReplace.value, this.input.value);
+        }
+        catch (err) {
+            this.messageBox.addMessage(err, 'failure');
+            return;
+        }
+
         const replaceableInputIndexes: Array<number> = this.getReplaceableIndexes(this.input.value);
         const positionsToReplace: Array<number> = Helpers.getRandomNumbers(
             0,
@@ -144,10 +156,11 @@ export default class Confusables {
         );
         
         const indexesToReplace: Set = Helpers.convertToSet(positionsToReplace.map((i) => replaceableInputIndexes[i]));
-        
         const replacedString: string = this.replaceString(this.input.value, indexesToReplace);
 
         this.output.value = replacedString;
+
+        this.messageBox.removeMessage();
     };
 
 
@@ -157,6 +170,9 @@ export default class Confusables {
             if (isNaN(percentage))
                 throw 'Percentage not a number...';
         }
+
+        if (percentage < 0 || percentage > 100)
+            throw 'Percentage must be between 0 and 100 (inclusive)...';
 
         var charsToBeReplaced = inputValue.length * percentage / 100;
         charsToBeReplaced = Math.floor(charsToBeReplaced);

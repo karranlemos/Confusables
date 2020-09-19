@@ -390,6 +390,10 @@ template {
   text-align: center;
 }
 
+.hidden {
+  display: none;
+}
+
 .split-text {
   display: flex;
   justify-content: center;
@@ -433,6 +437,22 @@ template {
 }
 .btn.btn-secondary:hover {
   background-color: #175317;
+}
+
+.message-box {
+  display: box;
+  min-height: 30px;
+  width: 100%;
+  padding: 30px;
+  overflow-x: hidden;
+  color: #fff;
+  background-color: #363636;
+}
+.message-box.success {
+  background-color: #003600;
+}
+.message-box.failure {
+  background-color: #360000;
 }
 
 @media screen and (max-width: 700px) {

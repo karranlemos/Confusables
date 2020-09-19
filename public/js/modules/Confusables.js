@@ -1,4 +1,5 @@
 import Helpers from './Helpers.js';
+import MessageBox from './MessageBox.js';
 // Objects
 const confusables = {
     a: 'а',
@@ -100,12 +101,19 @@ export default class Confusables {
                 throw "'.js-submitButtons' not found...";
         };
         this.confusify = () => {
-            const toBeReplaced = this.generateToBeReplaced(this.percentageReplace.value, this.input.value);
+            try {
+                var toBeReplaced = this.generateToBeReplaced(this.percentageReplace.value, this.input.value);
+            }
+            catch (err) {
+                this.messageBox.addMessage(err, 'failure');
+                return;
+            }
             const replaceableInputIndexes = this.getReplaceableIndexes(this.input.value);
             const positionsToReplace = Helpers.getRandomNumbers(0, (replaceableInputIndexes.length > 0) ? replaceableInputIndexes.length - 1 : 0, toBeReplaced);
             const indexesToReplace = Helpers.convertToSet(positionsToReplace.map((i) => replaceableInputIndexes[i]));
             const replacedString = this.replaceString(this.input.value, indexesToReplace);
             this.output.value = replacedString;
+            this.messageBox.removeMessage();
         };
         this.generateToBeReplaced = (percentage, inputValue) => {
             if (typeof percentage === 'string') {
@@ -113,6 +121,8 @@ export default class Confusables {
                 if (isNaN(percentage))
                     throw 'Percentage not a number...';
             }
+            if (percentage < 0 || percentage > 100)
+                throw 'Percentage must be between 0 and 100 (inclusive)...';
             var charsToBeReplaced = inputValue.length * percentage / 100;
             charsToBeReplaced = Math.floor(charsToBeReplaced);
             return charsToBeReplaced;
@@ -136,6 +146,7 @@ export default class Confusables {
             return newString;
         };
         this.confusable = confusable;
+        this.messageBox = new MessageBox('.js-message-box-container', this.confusable);
         this.percentageReplace = document.querySelector('.js-percentage-replace');
         this.input = document.querySelector('.js-input');
         this.output = document.querySelector('.js-output');
