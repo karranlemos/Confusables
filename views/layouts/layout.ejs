@@ -4,12 +4,16 @@
   <%- include('./inc/head') %>
 </head>
 <body>
-  <%- include('./inc/header') %>
+  <div class="all-container">
+    <%- include('./inc/header') %>
 
-  <main>
-    <div class="container">
-      <%- body %>
-    </div>
-  </main>
+    <main>
+      <div class="container">
+        <%- body %>
+      </div>
+    </main>
+
+    <%- include('./inc/footer') %>
+  </div>
 </body>
 </html>

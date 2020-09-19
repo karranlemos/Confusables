@@ -3,6 +3,14 @@ body {
     font-family: $font-family;
 }
 
+
+.all-container {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+
 header#main-nav-header {
     height: $nav-height;
 }
@@ -87,5 +95,20 @@ nav#main-nav {
 
     nav#main-nav.show .container .nav-items {
         transform: translateX(0);
+    }
+}
+
+footer#footer {
+    height: $footer-height;
+
+    background-color: $footer-bg-color;
+    color: $footer-color;
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        height: 100%;
     }
 }
