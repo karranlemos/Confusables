@@ -552,6 +552,10 @@ nav#main-nav .container .nav-mobile-button {
   nav#main-nav.show.translate .container .nav-items {
     transform: translateX(0);
   }
+  nav#main-nav.show.translate .container .nav-mobile-button {
+    background: url("../images/icons/Multiplication_Sign-white.svg") no-repeat center;
+    background-size: 28%;
+  }
 }
 footer#footer {
   height: 100px;
