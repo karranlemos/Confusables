@@ -6,6 +6,8 @@
   "scripts": {
     "start": "node index",
     "dev": "nodemon index",
+    "ts-webpack": "webpack --mode production",
+    "ts-webpack-dev": "webpack --watch --mode development",
     "ts-dev": "tsc --outDir public/js typescript/script.ts -t es2017 -w",
     "sass-dev": "sass scss/style.scss public/css/style.css --watch"
   },
@@ -19,6 +21,9 @@
   "devDependencies": {
     "nodemon": "^2.0.4",
     "sass": "^1.26.11",
-    "typescript": "^4.0.3"
+    "ts-loader": "^8.0.4",
+    "typescript": "^4.0.3",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
   }
 }

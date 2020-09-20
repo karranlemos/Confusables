@@ -1,4 +1,4 @@
-import Helpers from './Helpers.js';
+import Helpers from './Helpers';
 
 export default class Menu {
     private menu: Element;

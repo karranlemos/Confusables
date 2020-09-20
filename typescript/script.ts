@@ -1,5 +1,5 @@
-import Confusables from './modules/Confusables.js';
-import Menu from './modules/Menu.js';
+import Confusables from './modules/Confusables';
+import Menu from './modules/Menu';
 
 
 

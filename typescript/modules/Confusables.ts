@@ -1,5 +1,5 @@
-import Helpers, { Set } from './Helpers.js';
-import MessageBox from './MessageBox.js';
+import Helpers, { Set } from './Helpers';
+import MessageBox from './MessageBox';
 
 
 // Objects
